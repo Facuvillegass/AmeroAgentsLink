@@ -12,11 +12,60 @@ let loginSystem = document.getElementById("loginSystem");
 
 
 let usuariosHabilitados = ["Arbide", "Conte", "Garcia", "Ferrari", "Nuñez"];
-
+const validarNombre = (input) => {
+    if (input == "Arbide") {
+        return "Santiago"
+    } else if (input == "Conte") {
+        return "Ignacio"
+    } else if (input == "Garcia") {
+        return "Alex"
+    } else if (input == "Ferrari") {
+        return "Martín"
+    } else if (input == "Nuñez") {
+        return "Bernardo"
+    }
+}
 btnLoginSystem.addEventListener("click", () => {
+
+    if (inputUsuario.value.length == 0){
+        Toastify({
+            text: "Enter your code, please.",
+            duration: 2000,
+            newWindow: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+              background: "linear-gradient(to right, #ff000, #bef1c0)",
+            },
+          }).showToast();
+    }
   if (usuariosHabilitados.includes(inputUsuario.value)) {
     todoElPrograma.classList.remove("hidden");
     loginSystem.classList.add("hidden");
+    Toastify({
+        text: `Hello ${validarNombre(inputUsuario.value)}! Welcome to Amero Match.`,
+        duration: 3000,
+        newWindow: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #72fa79, #bef1c0)",
+        },
+      }).showToast();
+  } else if (!usuariosHabilitados.includes(inputUsuario.value) && inputUsuario.value != ""){
+    Toastify({
+        text: "Incorrect code, please try again.",
+        duration: 2000,
+        newWindow: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #ff0000, #ffffff)",
+        },
+      }).showToast();
   }
 });
 
