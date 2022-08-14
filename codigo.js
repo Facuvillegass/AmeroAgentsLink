@@ -10,6 +10,7 @@ let inputUsuario = document.getElementById("inputUsuarioCodigo");
 let btnLoginSystem = document.getElementById("btnLoginSystem");
 let loginSystem = document.getElementById("loginSystem");
 
+
 let usuariosHabilitados = ["Arbide", "Conte", "Garcia", "Ferrari", "Nuñez"];
 
 btnLoginSystem.addEventListener("click", () => {
@@ -368,6 +369,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
       );
       let dataSolicOk = await dataSolic.json();
       let jugadorOk = dataOk.find((jugador) => jugador.id === numeroIDjugador);
+      let arrayMatches = [];
 
       dataSolicOk.forEach((solicitud) => {
         let divMatches = document.createElement("div");
@@ -384,7 +386,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = ` <h4 class = "redColor"> There is NO match in age: Player: ${jugadorOk.edadJugador} & Order: ${solicitud.edadSolic}</h4>`;
+          nuevoDiv.innerHTML = ` <h4 class = "redColor"> There is NO match in age <br/> Player: ${jugadorOk.edadJugador} & Order: ${solicitud.edadSolic}</h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -398,7 +400,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Main Position: Player: ${jugadorOk.posicionPrincipalJugador} & Order: ${solicitud.posicionPrincipalSolic}</h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Main Position <br/> Player: ${jugadorOk.posicionPrincipalJugador} & Order: ${solicitud.posicionPrincipalSolic}</h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -409,7 +411,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Foot: Player: ${jugadorOk.pieHabilJugador} & Order: ${solicitud.pieHabilSolic} </h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Foot <br/> Player: ${jugadorOk.pieHabilJugador} & Order: ${solicitud.pieHabilSolic} </h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -420,7 +422,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is NO a match in Passport: Player: ${jugadorOk.pasaporteJugador} & Order: ${solicitud.pasaporteSolic} </h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is NO a match in Passport <br/> Player: ${jugadorOk.pasaporteJugador} & Order: ${solicitud.pasaporteSolic} </h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -434,7 +436,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Transfer Type: Player: ${jugadorOk.tipoDeTransferenciaJugador} & Order: ${solicitud.tipoDeTransferenciaSolic} </h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Transfer Type <br/> Player: ${jugadorOk.tipoDeTransferenciaJugador} & Order: ${solicitud.tipoDeTransferenciaSolic} </h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -448,7 +450,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Transfer Value: Player: ${jugadorOk.valorDeTransferenciaJugador} & Order: ${solicitud.valorDeTransferenciaSolic}</h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Transfer Value <br/> Player: ${jugadorOk.valorDeTransferenciaJugador} & Order: ${solicitud.valorDeTransferenciaSolic}</h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -459,7 +461,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Salary: Player: ${jugadorOk.sueldoJugador} & Order: ${solicitud.sueldoSolic}</h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Salary <br/> Player: ${jugadorOk.sueldoJugador} & Order: ${solicitud.sueldoSolic}</h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -473,7 +475,7 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Contract Situation: Player: ${jugadorOk.situacionContractualJugador} & Order: ${solicitud.situacionContractualSolic}</h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Contract Situation <br/> Player: ${jugadorOk.situacionContractualJugador} & Order: ${solicitud.situacionContractualSolic}</h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
@@ -484,11 +486,12 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           divMatches.appendChild(nuevoDiv);
         } else {
           let nuevoDiv = document.createElement("div");
-          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Class: Player: ${jugadorOk.claseJugador} & Order: ${solicitud.claseJugadorSolic}</h4>`;
+          nuevoDiv.innerHTML = `<h4 class = "redColor">There is a NO match in Class <br/> Player: ${jugadorOk.claseJugador} & Order: ${solicitud.claseJugadorSolic}</h4>`;
           divMatches.appendChild(nuevoDiv);
         }
 
         if (puntajeMatch > 5) {
+          arrayMatches.push("match");
           let nuevoDiv = document.createElement("div");
           nuevoDiv.classList.add("claseNuevoDivMatches");
           nuevoDiv.innerHTML = `<h3 class= "matchAnalysisTitle">Match Score between ${
@@ -512,6 +515,11 @@ btnVerJugadores.addEventListener("click", async function (evento) {
           });
         }
       });
+      if (arrayMatches.length == 0) {
+        let nuevoDiv = document.createElement("div");
+        nuevoDiv.innerText = "There is no matches in this search.";
+        contenedorVerMatches.appendChild(nuevoDiv);
+      }
     }
 
     btnVerMatchesJugadores.addEventListener("click", function () {
